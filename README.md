@@ -1,1 +1,1 @@
-# RegistroPlus - App repository
+# RegistroPlus - App 
