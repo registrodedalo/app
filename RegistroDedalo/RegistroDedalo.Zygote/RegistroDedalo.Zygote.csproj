@@ -13,8 +13,8 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile92</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,8 +35,30 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <Folder Include="Entities\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Interfaces\IAnnoScolastico.cs" />
+    <Compile Include="Interfaces\IAssenza.cs" />
+    <Compile Include="Interfaces\IAuthentication.cs" />
+    <Compile Include="Interfaces\ICalendario.cs" />
+    <Compile Include="Interfaces\IClasse.cs" />
+    <Compile Include="Interfaces\ICollaboratoreScolastico.cs" />
+    <Compile Include="Interfaces\IComunicazione.cs" />
+    <Compile Include="Interfaces\IGenitore.cs" />
+    <Compile Include="Interfaces\IGiustificazione.cs" />
+    <Compile Include="Interfaces\IIngressoUscita.cs" />
+    <Compile Include="Interfaces\ILezione.cs" />
+    <Compile Include="Interfaces\IMateria.cs" />
+    <Compile Include="Interfaces\INotaClasse.cs" />
+    <Compile Include="Interfaces\IOraLezione.cs" />
+    <Compile Include="Interfaces\IRequest.cs" />
+    <Compile Include="Interfaces\IInsegnante.cs" />
+    <Compile Include="Interfaces\IStudente.cs" />
+    <Compile Include="Interfaces\IUtente.cs" />
+    <Compile Include="Interfaces\IScuola.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
