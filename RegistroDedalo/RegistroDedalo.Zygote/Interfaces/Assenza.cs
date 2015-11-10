@@ -19,44 +19,36 @@
 
 using System;
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura Lezione
+    /// Classe Assenza
     /// </summary>
-    public interface ILezione
+    public class Assenza
     {
-        /// <summary>
-        /// ID univoco lezione
-        /// </summary>
-        int ID { get; set; }
-
-        // IDInsegnante
-        // IDClasse
+        private int id;
+        private DateTime data;
 
         /// <summary>
-        /// Argomento lezione
+        /// ID univoco assenza
         /// </summary>
-        string Argomento { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         /// <summary>
-        /// Data lezione
+        /// Data assenza
         /// </summary>
-        DateTime Data { get; set; }
+        public DateTime Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
+        
 
-        /// <summary>
-        /// Ora lezione (1, 2, 3...)
-        /// </summary>
-        int Ora { get; set; }
-
-        /// <summary>
-        /// Data creazione di questa lezione
-        /// </summary>
-        DateTime Creazione { get; set; }
-
-        /// <summary>
-        /// Data aggiornamento di questa lezione
-        /// </summary>
-        DateTime Aggiornamento { get; set; }
+        // IDStudente???
+        // IDGiustificazione???
     }
 }

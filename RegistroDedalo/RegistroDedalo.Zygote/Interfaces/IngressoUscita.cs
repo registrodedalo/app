@@ -19,35 +19,47 @@
 
 using System;
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura calendario
+    /// Struttura ingresso/uscita
     /// </summary>
-    public interface ICalendario
+    public class IngressoUscita
     {
         /// <summary>
-        /// ID appuntamento
+        /// ID ingresso uscita univoco
         /// </summary>
-        int ID { get; set; }
+        private string id;
+
+        public string ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         /// <summary>
-        /// Tipo appuntamento
+        /// Tipo (ingresso o uscita)
         /// </summary>
-        int Tipo { get; set; }
+        private int tipo;
+
+        public int Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
+        }
 
         /// <summary>
-        /// Data appuntamento
+        /// Data ingresso uscita
         /// </summary>
-        DateTime Data { get; set; }
+        private DateTime data;
 
-        // IDmateria
-        // IDOralezione
-        // IDInsegnante
+        public DateTime Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
 
-        /// <summary>
-        /// Descrizione appuntamento
-        /// </summary>
-        string Descrizione { get; set; }
+        // ID studente???
+        // ID giustificazione ???
     }
 }

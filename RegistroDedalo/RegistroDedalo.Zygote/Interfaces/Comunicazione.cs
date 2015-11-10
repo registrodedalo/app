@@ -17,28 +17,54 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace RegistroDedalo.Zygote.Interfaces
+using System;
+
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura Genitore
+    /// Classe Comunicazione
     /// </summary>
-    public interface IGenitore
+    public class Comunicazione
     {
-        /// <summary>
-        /// ID genitore
-        /// </summary>
-        int ID { get; set; }
-        
-        /// <summary>
-        /// Nome genitore
-        /// </summary>
-        string Nome { get; set; }
+        private int id;
+        private string oggetto;
+        private string testo;
+        private DateTime scadenza;
 
         /// <summary>
-        /// Cognome genitore
+        /// ID univoco comunicazione
         /// </summary>
-        string Cognome { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
-        // IDUtente
+        /// <summary>
+        /// Oggetto comunicazione
+        /// </summary>
+        public string Oggetto
+        {
+            get { return oggetto; }
+            set { oggetto = value; }
+        }
+
+        /// <summary>
+        /// Testo comunicazione
+        /// </summary>
+        public string Testo
+        {
+            get { return testo; }
+            set { testo = value; }
+        }
+
+        /// <summary>
+        /// Scadenza comunicazione
+        /// </summary>
+        public DateTime Scadenza
+        {
+            get { return scadenza; }
+            set { scadenza = value; }
+        }
     }
 }

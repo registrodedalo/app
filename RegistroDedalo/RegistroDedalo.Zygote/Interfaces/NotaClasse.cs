@@ -19,33 +19,48 @@
 
 using System;
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura AnnoScolastico
+    /// Struttura NotaClasse
     /// </summary>
-    public interface IAnnoScolastico
+    public class NotaClasse
     {
         /// <summary>
-        /// ID anno scolastico
+        /// ID univoco nota classe
         /// </summary>
-        int ID { get; set; }
+        private string id;
+
+        public string ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
 
         /// <summary>
-        /// Nome anno scolastico
+        /// Testo della nota
         /// </summary>
-        string Nome { get; set; }
+        private string testo;
+
+        public string Testo
+        {
+            get { return testo; }
+            set { testo = value; }
+        }
 
         /// <summary>
-        /// Data inizio anno scolastico
+        /// Data della nota
         /// </summary>
-        DateTime DataInizio { get; set; }
+        private DateTime data;
 
-        /// <summary>
-        /// Data fine anno scolastico
-        /// </summary>
-        DateTime DataFine { get; set; }
+        public DateTime Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
 
-        // IDScuola
+        // IDInsegnante
+        // IDClasse
     }
 }

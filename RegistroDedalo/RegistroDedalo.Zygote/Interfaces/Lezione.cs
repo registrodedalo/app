@@ -17,62 +17,79 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
+
 namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura Utente
+    /// Struttura Lezione
     /// </summary>
-    public class Utente
+    public class Lezione
     {
         private int id;
-        private string username;
-        private string password;
-        private bool u2fEnabled;
-        private string u2f;
+        private string argomento;
+        private DateTime data;
+        private int ora;
+        private DateTime creazione;
+        private DateTime aggiornamento;
 
         /// <summary>
-        /// ID Utente
+        /// ID univoco lezione
         /// </summary>
         public int ID
         {
-            get { return this.id; } 
-            set { this.id = value; }
+            get { return id; }
+            set { id = value; }
+        }
+
+
+        // IDInsegnante
+        // IDClasse
+
+        /// <summary>
+        /// Argomento lezione
+        /// </summary>
+        public string Argomento
+        {
+            get { return argomento; }
+            set { argomento = value; }
         }
 
         /// <summary>
-        /// Username utente
+        /// Data lezione
         /// </summary>
-        public string Username
+        public DateTime Data
         {
-            get { return this.username; }
-            set { this.username = value; }
+            get { return this.data; }
+            set { this.data = value; }
         }
 
         /// <summary>
-        /// Password utente
+        /// Ora lezione (1, 2, 3...)
         /// </summary>
-        public string Password
+        public int Ora
         {
-            get { return this.password; }
-            set { this.password = value; }
+            get { return ora; }
+            set { ora = value; }
+        }
+
+
+        /// <summary>
+        /// Data creazione di questa lezione
+        /// </summary>
+        DateTime Creazione
+        {
+            get { return this.creazione; }
+            set { this.creazione = value; }
         }
 
         /// <summary>
-        /// Indica se l'utente ha l'autenticazione a due fattori U2F abilitata
+        /// Data aggiornamento di questa lezione
         /// </summary>
-        public bool U2FEnabled
+        DateTime Aggiornamento
         {
-            get { return this.u2fEnabled; }
-            set { this.u2fEnabled = value; }
-        }
-
-        /// <summary>
-        /// Chiave U2F
-        /// </summary>
-        public string U2F
-        {
-            get { return this.u2f; }
-            set { this.u2f = value; }
+            get { return this.aggiornamento; }
+            set { this.aggiornamento = value; }
         }
     }
 }

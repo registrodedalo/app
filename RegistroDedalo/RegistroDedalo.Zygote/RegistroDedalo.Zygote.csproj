@@ -40,25 +40,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="Interfaces\IAnnoScolastico.cs" />
-    <Compile Include="Interfaces\IAssenza.cs" />
-    <Compile Include="Interfaces\IAuthentication.cs" />
-    <Compile Include="Interfaces\ICalendario.cs" />
-    <Compile Include="Interfaces\IClasse.cs" />
-    <Compile Include="Interfaces\ICollaboratoreScolastico.cs" />
-    <Compile Include="Interfaces\IComunicazione.cs" />
-    <Compile Include="Interfaces\IGenitore.cs" />
-    <Compile Include="Interfaces\IGiustificazione.cs" />
-    <Compile Include="Interfaces\IIngressoUscita.cs" />
-    <Compile Include="Interfaces\ILezione.cs" />
-    <Compile Include="Interfaces\IMateria.cs" />
-    <Compile Include="Interfaces\INotaClasse.cs" />
-    <Compile Include="Interfaces\IOraLezione.cs" />
-    <Compile Include="Interfaces\IRequest.cs" />
-    <Compile Include="Interfaces\IInsegnante.cs" />
-    <Compile Include="Interfaces\IStudente.cs" />
+    <Compile Include="Interfaces\AnnoScolastico.cs" />
+    <Compile Include="Interfaces\Assenza.cs" />
+    <Compile Include="Interfaces\Calendario.cs" />
+    <Compile Include="Interfaces\Classe.cs" />
+    <Compile Include="Interfaces\CollaboratoreScolastico.cs" />
+    <Compile Include="Interfaces\Comunicazione.cs" />
+    <Compile Include="Interfaces\Genitore.cs" />
+    <Compile Include="Interfaces\Giustificazione.cs" />
+    <Compile Include="Interfaces\IngressoUscita.cs" />
+    <Compile Include="Interfaces\Lezione.cs" />
+    <Compile Include="Interfaces\Materia.cs" />
+    <Compile Include="Interfaces\NotaClasse.cs" />
+    <Compile Include="Interfaces\OraLezione.cs" />
+    <Compile Include="Interfaces\Insegnante.cs" />
+    <Compile Include="Interfaces\Studente.cs" />
     <Compile Include="Interfaces\IUtente.cs" />
-    <Compile Include="Interfaces\IScuola.cs" />
+    <Compile Include="Interfaces\Scuola.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

@@ -17,17 +17,44 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura per ogni chiamata al server
-    /// (ogni oggetto che necessita di effettuare chiamate al server - autenticazione esclusa - deve ereditare questa interfaccia)
+    /// Struttura Materia 
     /// </summary>
-    public interface IRequest
+    public class Materia
     {
+        private int id;
+        private string nome;
+        private string nomeVisualizzato;
+
         /// <summary>
-        /// Token di autenticazione (ricevuto a seguito di autenticazione positiva)
+        /// ID univoco materia
         /// </summary>
-        string AuthToken { get; set; }
+        public int ID
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
+
+        /// <summary>
+        /// Nome materia
+        /// </summary>
+        public string Nome
+        {
+            get { return this.nome; }
+            set { this.nome = value; }
+        }
+
+        /// <summary>
+        /// Nome materia visualizzato
+        /// </summary>
+        public string NomeVisualizzato
+        {
+            get { return this.nomeVisualizzato; }
+            set { this.nomeVisualizzato = value; }
+        }
+
+        // Classe???
     }
 }

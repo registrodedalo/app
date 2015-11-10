@@ -17,29 +17,48 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System.Threading.Tasks;
-
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura di autenticatione 
-    /// (qualunque oggetto che vuole autenticarsi deve ereditare questa interfaccia)
+    /// Classe Classe -> paaaaaaaaaaaaaa ra pa ra pa pa ra pa pa pa pa pa paaaaaaa paaaa ra pa ra pa ra pa ra pa ra pappaaaaaaaaa
     /// </summary>
-    public interface IAuthentication
+    public class Classe
     {
-        /// <summary>
-        /// Username utente
-        /// </summary>
-        string Username { get; set; }
+        private int id;
+        private string nome;
+        private int anno;
 
         /// <summary>
-        /// Password utente
+        /// ID classe
         /// </summary>
-        string Password { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
 
         /// <summary>
-        /// Metodo di autenticazione
+        /// Nome della classe (es. "AIs")
         /// </summary>
-        Task<bool> Authenticate();
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+
+        /// <summary>
+        /// Anno della classe (es. "1", "2"...)
+        /// </summary>
+        public int Anno
+        {
+            get { return anno; }
+            set { anno = value; }
+        }
+
+
+        // IDScuola ???
+        // IDAnnoScolastico ???
     }
 }

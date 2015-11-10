@@ -17,31 +17,22 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura NotaClasse
+    /// Struttura CollaboratoreScolastico
     /// </summary>
-    public interface INotaClasse
+    public class CollaboratoreScolastico
     {
-        /// <summary>
-        /// ID univoco nota classe
-        /// </summary>
-        int ID { get; set; }
+        private int id;
 
         /// <summary>
-        /// Testo della nota
+        /// ID collaboratore scolastico
         /// </summary>
-        string Testo { get; set; }
-
-        /// <summary>
-        /// Data della nota
-        /// </summary>
-        DateTime Data { get; set; }
-
-        // IDInsegnante
-        // IDClasse
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
     }
 }

@@ -17,25 +17,44 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura giustificazione
+    /// Classe Genitore
     /// </summary>
-    public interface IGiustificazione
+    public class Genitore
     {
-        /// <summary>
-        /// ID univoco giustificazione
-        /// </summary>
-        int ID { get; set; }
-
-        // IDInsegnante ??
+        private string id;
+        private string nome;
+        private string cognome;
 
         /// <summary>
-        /// Data giustificazione
+        /// ID genitore
         /// </summary>
-        DateTime Data { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        /// <summary>
+        /// Nome genitore
+        /// </summary>
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+        /// <summary>
+        /// Cognome genitore
+        /// </summary>
+        public string Cognome
+        {
+            get { return cognome; }
+            set { cognome = value; }
+        }
+
+        // IDUtente
     }
 }

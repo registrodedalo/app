@@ -17,29 +17,48 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Definisce la classe
+    /// Struttura Insegnante
     /// </summary>
-    public interface IClasse
+    public class Insegnante
     {
-        /// <summary>
-        /// ID classe
-        /// </summary>
-        int ID { get; set; }
+        private int id;
+        private string nome;
+        private string cognome;
 
         /// <summary>
-        /// Nome della classe (es. "AIs")
+        /// ID insegnante
         /// </summary>
-        string Nome { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
 
         /// <summary>
-        /// Anno della classe (es. "1", "2"...)
+        /// Nome insegnante
         /// </summary>
-        int Anno { get; set; }
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
 
-        // IDScuola ???
-        // IDAnnoScolastico ???
+
+        /// <summary>
+        /// Cognome insegnante
+        /// </summary>
+        public string Cognome
+        {
+            get { return cognome; }
+            set { cognome = value; }
+        }
+
+
+        // IDUtente
+        // IDScuola
     }
 }

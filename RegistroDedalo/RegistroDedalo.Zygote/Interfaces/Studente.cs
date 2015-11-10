@@ -19,57 +19,103 @@
 
 using System;
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
     /// Struttura Studente
     /// </summary>
-    public interface IStudente
+    public class Studente
     {
+        private int id;
+        private string nome;
+        private string cognome;
+        private DateTime dataNascita;
+        private string codiceFiscale;
+        private string residenza;
+        private bool isEsoneratoIRC;
+        private bool isEsoneratoEdFis;
+        private string note;
+
         /// <summary>
         /// ID studente
         /// </summary>
-        int ID { get; set; }
+        public int ID
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
 
         /// <summary>
         /// Nome studente
         /// </summary>
-        string Nome { get; set; }
+        public string Nome
+        {
+            get { return this.nome; }
+            set { this.nome = value; }
+        }
 
         /// <summary>
         /// Cognome studente
         /// </summary>
-        string Cognome { get; set; }
+        public string Cognome
+        {
+            get { return this.cognome; }
+            set { this.cognome = value; }
+        }
 
         /// <summary>
         /// Data di nascita
         /// </summary>
-        DateTime DataNascita { get; set; }
+        public DateTime DataNascita
+        {
+            get { return this.dataNascita; }
+            set { this.dataNascita = value; }
+        }
 
         /// <summary>
         /// Codice fiscale
         /// </summary>
-        string CodiceFiscale { get; set; }
+        public string CodiceFiscale
+        {
+            get { return this.codiceFiscale; }
+            set { this.codiceFiscale = value; }
+        }
 
         /// <summary>
         /// Indirizzo residenza
         /// </summary>
-        string Residenza { get; set; }
+        public string Residenza
+        {
+            get { return this.residenza; }
+            set { this.residenza = value; }
+        }
 
         /// <summary>
         /// Indica se lo studente è esonerato da IRC
         /// </summary>
-        bool IsEsoneratoIRC { get; set; }
+        public bool IsEsoneratoIRC
+        {
+            get { return this.isEsoneratoIRC; } 
+            set { this.isEsoneratoIRC = value; }
+        }
 
         /// <summary>
         /// Indica se lo studente è esonerato da educazione fisica
         /// </summary>
-        bool IsEsoneratoEdFisica { get; set; }
+        public bool IsEsoneratoEdFisica
+        {
+            get { return this.isEsoneratoEdFis; }
+            set { this.isEsoneratoEdFis = value; }
+        }
 
         /// <summary>
         /// Note sullo studente (es. "Steve suda spesso durante la lezione incitando gli sviluppatori Windows")
         /// </summary>
-        string Note { get; set; }
+        public string Note
+        {
+            get { return this.note; }
+            set { this.note = value; }
+        }
 
         // IDClasse ???
         // IDUtente ???

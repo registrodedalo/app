@@ -17,41 +17,52 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura OraLezione
+    /// Struttura di una Scuola
     /// </summary>
-    public interface IOraLezione
-    { 
-        /// <summary>
-        /// ID univoco OraLezione
-        /// </summary>
-        int ID { get; set; }
+    public class Scuola
+    {
+        private int id;
+        private string nome;
+        private string luogo;
+        private string tipologia;
 
         /// <summary>
-        /// Ora lezione
+        /// ID scuola
         /// </summary>
-        int Ora { get; set; }
+        private int ID
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
 
         /// <summary>
-        /// Data inizio lezione
+        /// Nome della scuola
         /// </summary>
-        DateTime Inizio { get; set; }
+        public string Nome
+        {
+            get { return this.nome; }
+            set { this.nome = value; }
+        }
 
         /// <summary>
-        /// Data fine lezione
+        /// Indirizzo della scuola
         /// </summary>
-        DateTime Fine { get; set; }
-
-        // Id materia
-        // Id classe
-
+        public string Luogo
+        {
+            get { return this.luogo; }
+            set { this.luogo = value; }
+        }
+    
         /// <summary>
-        /// Note lezione
+        /// Tipologia di scuola
         /// </summary>
-        string Note { get; set; }
+        public string Tipologia
+        {
+            get { return this.tipologia; }
+            set { this.tipologia = value; }
+        }
     }
 }

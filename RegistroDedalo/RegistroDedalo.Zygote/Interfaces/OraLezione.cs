@@ -17,62 +17,67 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
+
 namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura Utente
+    /// Struttura OraLezione
     /// </summary>
-    public class Utente
+    public class OraLezione
     {
         private int id;
-        private string username;
-        private string password;
-        private bool u2fEnabled;
-        private string u2f;
+        private int ora;
+        private DateTime inizio;
+        private DateTime fine;
+        private string note;
 
         /// <summary>
-        /// ID Utente
+        /// ID univoco OraLezione
         /// </summary>
         public int ID
         {
-            get { return this.id; } 
+            get { return this.id; }
             set { this.id = value; }
         }
 
         /// <summary>
-        /// Username utente
+        /// Ora lezione
         /// </summary>
-        public string Username
+        public int Ora
         {
-            get { return this.username; }
-            set { this.username = value; }
+            get { return this.ora; }
+            set { this.ora = value; }
         }
 
         /// <summary>
-        /// Password utente
+        /// Data inizio lezione
         /// </summary>
-        public string Password
+        public DateTime Inizio
         {
-            get { return this.password; }
-            set { this.password = value; }
+            get { return this.inizio; }
+            set { this.inizio = value; }
         }
 
         /// <summary>
-        /// Indica se l'utente ha l'autenticazione a due fattori U2F abilitata
+        /// Data fine lezione
         /// </summary>
-        public bool U2FEnabled
+        public DateTime Fine
         {
-            get { return this.u2fEnabled; }
-            set { this.u2fEnabled = value; }
+            get { return this.fine; }
+            set { this.fine = value; }
         }
 
+        // Id materia
+        // Id classe
+
         /// <summary>
-        /// Chiave U2F
+        /// Note lezione
         /// </summary>
-        public string U2F
+        public string Note
         {
-            get { return this.u2f; }
-            set { this.u2f = value; }
+            get { return this.note; }
+            set { this.note = value; }
         }
     }
 }

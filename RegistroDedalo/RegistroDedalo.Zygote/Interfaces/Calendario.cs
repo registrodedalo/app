@@ -17,62 +17,58 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
+
 namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura Utente
+    /// Struttura calendario
     /// </summary>
-    public class Utente
+    public class Calendario
     {
         private int id;
-        private string username;
-        private string password;
-        private bool u2fEnabled;
-        private string u2f;
+        private int tipo;
+        private DateTime data;
+        private string descrizione;
 
         /// <summary>
-        /// ID Utente
+        /// ID appuntamento
         /// </summary>
         public int ID
         {
-            get { return this.id; } 
-            set { this.id = value; }
+            get { return id; }
+            set { id = value; }
         }
 
         /// <summary>
-        /// Username utente
+        /// Tipo appuntamento
         /// </summary>
-        public string Username
+        public int Tipo
         {
-            get { return this.username; }
-            set { this.username = value; }
+            get { return tipo; }
+            set { tipo = value; }
         }
 
         /// <summary>
-        /// Password utente
+        /// Data appuntamento
         /// </summary>
-        public string Password
+        public DateTime Data
         {
-            get { return this.password; }
-            set { this.password = value; }
+            get { return data; }
+            set { data = value; }
         }
 
-        /// <summary>
-        /// Indica se l'utente ha l'autenticazione a due fattori U2F abilitata
-        /// </summary>
-        public bool U2FEnabled
-        {
-            get { return this.u2fEnabled; }
-            set { this.u2fEnabled = value; }
-        }
+        // IDmateria
+        // IDOralezione
+        // IDInsegnante
 
         /// <summary>
-        /// Chiave U2F
+        /// Descrizione appuntamento
         /// </summary>
-        public string U2F
+        public string Descrizione
         {
-            get { return this.u2f; }
-            set { this.u2f = value; }
+            get { return descrizione; }
+            set { descrizione = value; }
         }
     }
 }

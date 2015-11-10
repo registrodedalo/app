@@ -19,31 +19,54 @@
 
 using System;
 
-namespace RegistroDedalo.Zygote.Interfaces
+namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
-    /// Struttura Comunicazione
+    /// Classe AnnoScolastico
     /// </summary>
-    public interface IComunicazione
+    public class AnnoScolastico
     {
-        /// <summary>
-        /// ID univoco comunicazione
-        /// </summary>
-        int ID { get; set; }
+        private int id;
+        private string nome;
+        private DateTime dataInizio;
+        private DateTime dataFine;
 
         /// <summary>
-        /// Oggetto comunicazione
+        /// ID anno scolastico
         /// </summary>
-        string Oggetto { get; set; }
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         /// <summary>
-        /// Testo comunicazione
+        /// Nome anno scolastico
         /// </summary>
-        string Testo { get; set; }
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
 
         /// <summary>
-        /// Scadenza comunicazione
+        /// Data inizio anno scolastico
         /// </summary>
-        DateTime Scadenza { get; set; }
+        public DateTime DataInizio
+        {
+            get { return dataInizio; }
+            set { dataInizio = value; }
+        }
+
+        /// <summary>
+        /// Data fine anno scolastico
+        /// </summary>
+        public DateTime DataFine
+        {
+            get { return dataFine; }
+            set { dataFine = value; }
+        }
+        
+        // IDScuola
     }
 }
