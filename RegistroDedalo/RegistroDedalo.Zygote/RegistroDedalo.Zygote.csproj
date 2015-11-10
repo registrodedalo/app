@@ -35,28 +35,27 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Entities\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="Interfaces\AnnoScolastico.cs" />
-    <Compile Include="Interfaces\Assenza.cs" />
-    <Compile Include="Interfaces\Calendario.cs" />
-    <Compile Include="Interfaces\Classe.cs" />
-    <Compile Include="Interfaces\CollaboratoreScolastico.cs" />
-    <Compile Include="Interfaces\Comunicazione.cs" />
-    <Compile Include="Interfaces\Genitore.cs" />
-    <Compile Include="Interfaces\Giustificazione.cs" />
-    <Compile Include="Interfaces\IngressoUscita.cs" />
-    <Compile Include="Interfaces\Lezione.cs" />
-    <Compile Include="Interfaces\Materia.cs" />
-    <Compile Include="Interfaces\NotaClasse.cs" />
-    <Compile Include="Interfaces\OraLezione.cs" />
-    <Compile Include="Interfaces\Insegnante.cs" />
-    <Compile Include="Interfaces\Studente.cs" />
-    <Compile Include="Interfaces\IUtente.cs" />
-    <Compile Include="Interfaces\Scuola.cs" />
+    <Compile Include="Entities\AnnoScolastico.cs" />
+    <Compile Include="Entities\Assenza.cs" />
+    <Compile Include="Entities\Calendario.cs" />
+    <Compile Include="Entities\Classe.cs" />
+    <Compile Include="Entities\CollaboratoreScolastico.cs" />
+    <Compile Include="Entities\Comunicazione.cs" />
+    <Compile Include="Entities\Genitore.cs" />
+    <Compile Include="Entities\Giustificazione.cs" />
+    <Compile Include="Entities\IngressoUscita.cs" />
+    <Compile Include="Entities\Lezione.cs" />
+    <Compile Include="Entities\Materia.cs" />
+    <Compile Include="Entities\NotaClasse.cs" />
+    <Compile Include="Entities\OraLezione.cs" />
+    <Compile Include="Entities\Insegnante.cs" />
+    <Compile Include="Entities\Studente.cs" />
+    <Compile Include="Entities\Utente.cs" />
+    <Compile Include="Entities\Scuola.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
