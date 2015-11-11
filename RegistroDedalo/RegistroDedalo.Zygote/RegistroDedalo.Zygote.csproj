@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\DedaloAPI.cs" />
     <Compile Include="Entities\AnnoScolastico.cs" />
     <Compile Include="Entities\Assenza.cs" />
     <Compile Include="Entities\Calendario.cs" />

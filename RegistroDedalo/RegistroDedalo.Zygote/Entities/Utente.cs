@@ -17,6 +17,8 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
+
 namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
@@ -29,6 +31,26 @@ namespace RegistroDedalo.Zygote.Entities
         private string password;
         private bool u2fEnabled;
         private string u2f;
+        private string authToken;
+        private DateTime authTokenExpirationDate;
+
+        /// <summary>
+        /// Auth token per questo utente
+        /// </summary>
+        public string AuthToken
+        {
+            get { return this.authToken; }
+            set { this.authToken = value; }
+        }
+
+        /// <summary>
+        /// Rappresenta la data in cui il token relativo a questo utente scade
+        /// </summary>
+        public DateTime AuthTokenExpirationDate
+        {
+            get { return this.authTokenExpirationDate; }
+            set { this.authTokenExpirationDate = value; }
+        }
 
         /// <summary>
         /// ID Utente
@@ -73,6 +95,25 @@ namespace RegistroDedalo.Zygote.Entities
         {
             get { return this.u2f; }
             set { this.u2f = value; }
+        }
+
+        /// <summary>
+        /// Inizializza un'istanza della classe Utente
+        /// </summary>
+        public Utente()
+        {
+            ;
+        }
+
+        /// <summary>
+        /// Inizializza un'istanza della classe Utente
+        /// </summary>
+        /// <param name="username">Username utente</param>
+        /// <param name="password">Password utente</param>
+        public Utente(string username, string password) : this()
+        {
+            this.username = username;
+            this.password = password;
         }
     }
 }

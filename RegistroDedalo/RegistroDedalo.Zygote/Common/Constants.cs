@@ -26,11 +26,6 @@ namespace RegistroDedalo.Zygote.Common
 {
     public static class Constants
     {
-        public const string BaseEndpoint = "http://dedalo.xyz/api/1.0";
 
-        // Classe
-        public const string GetClasse = "/classi/{0}";
-
-        public const string LoginEndpoint = "/auth/sign";
     }
 }
