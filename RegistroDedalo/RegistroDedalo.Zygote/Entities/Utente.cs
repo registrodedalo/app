@@ -18,12 +18,14 @@
 */
 
 using System;
+using System.Runtime.Serialization;
 
 namespace RegistroDedalo.Zygote.Entities
 {
     /// <summary>
     /// Struttura Utente
     /// </summary>
+    [DataContract]
     public class Utente
     {
         private int id;
@@ -32,11 +34,13 @@ namespace RegistroDedalo.Zygote.Entities
         private bool u2fEnabled;
         private string u2f;
         private string authToken;
+        private string[] profili;
         private DateTime authTokenExpirationDate;
 
         /// <summary>
         /// Auth token per questo utente
         /// </summary>
+        [DataMember(Name = "Token")]
         public string AuthToken
         {
             get { return this.authToken; }
@@ -46,6 +50,7 @@ namespace RegistroDedalo.Zygote.Entities
         /// <summary>
         /// Rappresenta la data in cui il token relativo a questo utente scade
         /// </summary>
+        [DataMember]
         public DateTime AuthTokenExpirationDate
         {
             get { return this.authTokenExpirationDate; }
@@ -55,6 +60,7 @@ namespace RegistroDedalo.Zygote.Entities
         /// <summary>
         /// ID Utente
         /// </summary>
+        [DataMember]
         public int ID
         {
             get { return this.id; } 
@@ -64,6 +70,7 @@ namespace RegistroDedalo.Zygote.Entities
         /// <summary>
         /// Username utente
         /// </summary>
+        [DataMember]
         public string Username
         {
             get { return this.username; }
@@ -73,6 +80,7 @@ namespace RegistroDedalo.Zygote.Entities
         /// <summary>
         /// Password utente
         /// </summary>
+        [DataMember]
         public string Password
         {
             get { return this.password; }
@@ -82,6 +90,7 @@ namespace RegistroDedalo.Zygote.Entities
         /// <summary>
         /// Indica se l'utente ha l'autenticazione a due fattori U2F abilitata
         /// </summary>
+        [DataMember]
         public bool U2FEnabled
         {
             get { return this.u2fEnabled; }
@@ -91,10 +100,21 @@ namespace RegistroDedalo.Zygote.Entities
         /// <summary>
         /// Chiave U2F
         /// </summary>
+        [DataMember]
         public string U2F
         {
             get { return this.u2f; }
             set { this.u2f = value; }
+        }
+
+        /// <summary>
+        /// Profili a cui questo utente è correlato
+        /// </summary>
+        [DataMember(Name = "profili")]
+        public string[] Profili
+        {
+            get { return this.profili; }
+            set { this.profili = value; }
         }
 
         /// <summary>
