@@ -29,6 +29,7 @@ namespace RegistroDedalo.Zygote.Common
     public class DedaloError
     {
         private int code;
+        private string message;
 
         /// <summary>
         /// Error code (specified on Dedalo's documentation)
@@ -40,7 +41,6 @@ namespace RegistroDedalo.Zygote.Common
             set { code = value; }
         }
 
-        private string message;
 
         /// <summary>
         /// Error message

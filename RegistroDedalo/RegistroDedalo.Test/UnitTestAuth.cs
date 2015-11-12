@@ -36,7 +36,7 @@ namespace RegistroDedalo.Test
         {
             DedaloClient client = new DedaloClient();
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
+            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "ciao");
             Utente user = response.Data;
 
             Assert.IsNotNull(user);
@@ -47,7 +47,7 @@ namespace RegistroDedalo.Test
         {
             DedaloClient client = new DedaloClient(string.Empty);
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
+            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "ciao");
             Utente user = response.Data;
 
             Assert.IsNotNull(user);
@@ -58,7 +58,7 @@ namespace RegistroDedalo.Test
         {
             DedaloClient client = new DedaloClient(string.Empty, "user-agent1");
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
+            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "ciao");
             Utente user = response.Data;
 
             Assert.IsNotNull(user);

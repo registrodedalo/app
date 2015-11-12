@@ -33,7 +33,7 @@ namespace RegistroDedalo.Zygote.Common
     public class DedaloClient : RestClient
     {
         #region Constants
-        private const string baseUrl = "http://localhost:3001/";
+        private const string baseUrl = "http://localhost:3001/v1";
         private const string signEndpoint = "/auth/sign";
 
 
@@ -119,6 +119,41 @@ namespace RegistroDedalo.Zygote.Common
             return r;
         }
 
+        /// <summary>
+        /// Analyze response, giving back a well formed DedaloResponse object
+        /// </summary>
+        /// <typeparam name="T">DedaloResponse's T object</typeparam>
+        /// <param name="result">RestRequest result</param>
+        /// <returns>DedaloResponse object</returns>
+        private async Task<DedaloResponse<T>> GetResponse<T>(RestResponse<DedaloResponse<T>> result)
+        {
+            if (result.HttpResponseMessage != null &&
+                result.HttpResponseMessage.IsSuccessStatusCode)
+            {
+                // Yayyyy
+                return result.Content;
+            }
+            else
+            {
+                // Request error, deserializing response
+                DedaloResponse<T> response = new DedaloResponse<T>();
+                if (result.HttpResponseMessage.Content != null)
+                {
+                    response = JsonConvert.DeserializeObject<DedaloResponse<T>>(await result.HttpResponseMessage.Content.ReadAsStringAsync());
+                }
+                else
+                {
+                    response.Error = new DedaloError()
+                    {
+                        Code = -1, // -1 shows that error has been generated due to an exception
+                        Message = result.Exception.ToString()
+                    };
+                }
+
+                return response;
+            }
+        }
+
         #region User authentication + token refresh
         /// <summary>
         /// User authentication
@@ -148,18 +183,7 @@ namespace RegistroDedalo.Zygote.Common
 
             // Execute request + checking result
             RestResponse<DedaloResponse<Utente>> result = await base.SendAsync<DedaloResponse<Utente>>(request);
-            if (result.HttpResponseMessage != null && 
-                result.HttpResponseMessage.IsSuccessStatusCode)
-            {
-                // Yayyyy
-                return result.Content;
-            }
-            else
-            {
-                // Request error, deserializing response
-                DedaloResponse<Utente> response = JsonConvert.DeserializeObject<DedaloResponse<Utente>>(await result.HttpResponseMessage.Content.ReadAsStringAsync());
-                return response;
-            }
+            return await this.GetResponse<Utente>(result);
         } 
 
         /// <summary>

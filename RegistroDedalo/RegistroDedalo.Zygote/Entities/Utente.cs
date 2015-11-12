@@ -25,7 +25,7 @@ namespace RegistroDedalo.Zygote.Entities
     /// <summary>
     /// Struttura Utente
     /// </summary>
-    [DataContract]
+    [DataContract(Name = "data")]
     public class Utente
     {
         private int id;
