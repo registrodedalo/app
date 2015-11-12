@@ -35,12 +35,13 @@ namespace RegistroDedalo.Zygote.Entities
         private string u2f;
         private string authToken;
         private string[] profili;
+        private string did;
         private DateTime authTokenExpirationDate;
 
         /// <summary>
         /// Auth token per questo utente
         /// </summary>
-        [DataMember(Name = "Token")]
+        [DataMember(Name = "token")]
         public string AuthToken
         {
             get { return this.authToken; }
@@ -115,6 +116,16 @@ namespace RegistroDedalo.Zygote.Entities
         {
             get { return this.profili; }
             set { this.profili = value; }
+        }
+
+        /// <summary>
+        /// Identificativo dispositivo per questo utente
+        /// </summary>
+        [DataMember(Name = "did")]
+        public string DID
+        {
+            get { return this.did; }
+            set { this.did = value; }
         }
 
         /// <summary>

@@ -17,11 +17,12 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using PortableRest;
 using RegistroDedalo.Zygote.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace RegistroDedalo.Zygote.Common
@@ -29,11 +30,13 @@ namespace RegistroDedalo.Zygote.Common
     /// <summary>
     /// Handles client-server connections
     /// </summary>
-    public class DedaloAPI 
+    public class DedaloClient : RestClient
     {
         #region Constants
-        private const string baseUrl = "http://dedalo.xyz/api/1.0";
-        
+        private const string baseUrl = "http://localhost:3001/";
+        private const string signEndpoint = "/auth/sign";
+
+
         // Not implemented at the moment
         private const string applicationKey = "dedalo";
         #endregion
@@ -67,16 +70,16 @@ namespace RegistroDedalo.Zygote.Common
         /// <summary>
         /// Inizializza una nuova istanza di DedaloWebRequest
         /// </summary>
-        public DedaloAPI()
+        public DedaloClient()
         {
-            ;
+            base.BaseUrl = baseUrl;
         }
 
         /// <summary>
         /// Inizializza una nuova istanza di DedaloWebRequest
         /// </summary>
         /// <param name="authToken">Auth token</param>
-        public DedaloAPI(string authToken) : this()
+        public DedaloClient(string authToken) : this()
         {
             this.authToken = authToken;
         }
@@ -86,20 +89,34 @@ namespace RegistroDedalo.Zygote.Common
         /// </summary>
         /// <param name="authToken">Auth token</param>
         /// <param name="userAgent">User agent</param>
-        public DedaloAPI(string authToken, string userAgent) : this(authToken)
+        public DedaloClient(string authToken, string userAgent) : this(authToken)
         {
             this.userAgent = userAgent;
         }
         #endregion
-        
+
         /// <summary>
-        /// API requests funneling
+        /// Set up a request with default values
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="endpoint">Endpoint for this request</param>
         /// <returns></returns>
-        public async Task<T> Execute<T>() where T : new()
+        private RestRequest SetRequest(string endpoint)
         {
-            return default(T);
+            RestRequest r = new RestRequest(endpoint);
+
+            // Set content type
+            r.ContentType = ContentTypes.Json;
+
+            // Set headers
+            r.AddHeader("Application-Key", applicationKey);
+
+            // if endpoint differs from signEndpoint (this is the only endpoint that doesn't need an auth token), skip AuthToken header
+            if (endpoint != signEndpoint)
+                r.AddHeader("AuthToken", this.authToken);
+            if (!string.IsNullOrWhiteSpace(this.userAgent))
+                r.AddHeader("User-Agent", this.userAgent);      
+
+            return r;
         }
 
         #region User authentication + token refresh
@@ -108,11 +125,41 @@ namespace RegistroDedalo.Zygote.Common
         /// </summary>
         /// <param name="username">Username</param>
         /// <param name="password">Password</param>
+        /// <exception cref="NullReferenceException">Se username e/o password sono nulli o vuoti viene lanciata un'eccezione di tipo NullReferenceException</exception>
         /// <returns>Utente object</returns>
-        public Utente SignIn(string username, string password)
+        public async Task<DedaloResponse<Utente>> SignIn(string username, string password)
         {
-            Utente result = new Utente(username, password);
-            return result;
+            // Check if username and/or password are empty or null
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                throw new NullReferenceException("username e/o password vuoti o nulli");
+            }
+
+            // Create request
+            RestRequest request = this.SetRequest(signEndpoint);
+            request.Method = HttpMethod.Post;
+
+            // Set values (not working yet)
+            JObject body = new JObject();
+            body.Add("username", username);
+            body.Add("password", password);
+
+            request.AddParameter(body);
+
+            // Execute request + checking result
+            RestResponse<DedaloResponse<Utente>> result = await base.SendAsync<DedaloResponse<Utente>>(request);
+            if (result.HttpResponseMessage != null && 
+                result.HttpResponseMessage.IsSuccessStatusCode)
+            {
+                // Yayyyy
+                return result.Content;
+            }
+            else
+            {
+                // Request error, deserializing response
+                DedaloResponse<Utente> response = JsonConvert.DeserializeObject<DedaloResponse<Utente>>(await result.HttpResponseMessage.Content.ReadAsStringAsync());
+                return response;
+            }
         } 
 
         /// <summary>

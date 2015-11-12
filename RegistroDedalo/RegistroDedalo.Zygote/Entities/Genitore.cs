@@ -24,7 +24,7 @@ namespace RegistroDedalo.Zygote.Entities
     /// </summary>
     public class Genitore
     {
-        private string id;
+        private int id;
         private string nome;
         private string cognome;
 

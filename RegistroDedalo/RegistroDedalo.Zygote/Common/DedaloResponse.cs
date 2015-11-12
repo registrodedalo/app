@@ -17,6 +17,7 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
+using Newtonsoft.Json;
 using System.Runtime.Serialization;
 
 namespace RegistroDedalo.Zygote.Common
@@ -30,6 +31,9 @@ namespace RegistroDedalo.Zygote.Common
         private T data;
         private DedaloError error;
 
+        /// <summary>
+        /// Response content
+        /// </summary>
         [DataMember(Name = "data")]
         public T Data
         {
@@ -37,10 +41,31 @@ namespace RegistroDedalo.Zygote.Common
             set { this.data = value; }
         }
 
+        /// <summary>
+        /// Response error (if available)
+        /// </summary>
+        [DataMember(Name = "error")]
         public DedaloError Error
         {
             get { return this.error; }
             set { this.error = value; }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of DedaloResponse
+        /// </summary>
+        public DedaloResponse()
+        {
+            ;
+        }
+
+        /// <summary>
+        /// Serialize this object into a string
+        /// </summary>
+        /// <returns>This object serialized</returns>
+        public override string ToString()
+        {
+            return string.Format(JsonConvert.SerializeObject(this));
         }
     }
 }

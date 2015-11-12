@@ -36,32 +36,32 @@ namespace RegistroDedalo.Test
         {
             DedaloClient client = new DedaloClient();
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome","password");
+            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
             Utente user = response.Data;
 
             Assert.IsNotNull(user);
         }
 
-        //[TestMethod]
-        //public async Task TestAuthWithAuthToken()
-        //{
-        //    DedaloClient client = new DedaloClient(string.Empty);
+        [TestMethod]
+        public async Task TestAuthWithAuthToken()
+        {
+            DedaloClient client = new DedaloClient(string.Empty);
 
-        //    DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
-        //    Utente user = response.Data;
+            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
+            Utente user = response.Data;
 
-        //    Assert.IsNotNull(user);
-        //}
+            Assert.IsNotNull(user);
+        }
 
-        //[TestMethod]
-        //public async Task TestAuthWithDifferentUserAgent()
-        //{
-        //    DedaloClient client = new DedaloClient(string.Empty, "user-agent1");
+        [TestMethod]
+        public async Task TestAuthWithDifferentUserAgent()
+        {
+            DedaloClient client = new DedaloClient(string.Empty, "user-agent1");
 
-        //    DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
-        //    Utente user = response.Data;
+            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "password");
+            Utente user = response.Data;
 
-        //    Assert.IsNotNull(user);
-        //}
+            Assert.IsNotNull(user);
+        }
     }
 }
