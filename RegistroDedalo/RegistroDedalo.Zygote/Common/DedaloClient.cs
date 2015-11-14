@@ -35,7 +35,7 @@ namespace RegistroDedalo.Zygote.Common
         #region Constants
         private const string baseUrl = "http://localhost:3001/v1";
         private const string signEndpoint = "/auth/sign";
-
+        private const string meEndpoint = "/auth/me";
 
         // Not implemented at the moment
         private const string applicationKey = "dedalo";
@@ -120,6 +120,20 @@ namespace RegistroDedalo.Zygote.Common
         }
 
         /// <summary>
+        /// Set up a request with default values
+        /// </summary>
+        /// <param name="endpoint">Endpoint for this request</param>
+        /// <param name="authToken">Auth token for this request</param>
+        /// <returns></returns>
+        private RestRequest SetRequest(string endpoint, string authToken)
+        {
+            RestRequest r = this.SetRequest(endpoint);
+            r.AddHeader("AuthToken", authToken);
+
+            return r;
+        }
+
+        /// <summary>
         /// Analyze response, giving back a well formed DedaloResponse object
         /// </summary>
         /// <typeparam name="T">DedaloResponse's T object</typeparam>
@@ -194,6 +208,38 @@ namespace RegistroDedalo.Zygote.Common
         public Utente RefreshAuthToken(string oldAuthToken)
         {
             throw new NotImplementedException();
+        }
+        #endregion
+
+        #region User profile
+        /// <summary>
+        /// Get profile information
+        /// </summary>
+        /// <param name="authToken">Auth token</param>
+        /// <returns>DedaloResponse with User "data" property</returns>
+        public async Task<DedaloResponse<Utente>> GetMe(string authToken)
+        {
+            // throw exception if authToken is null or whitespace
+            if (string.IsNullOrWhiteSpace(this.authToken))
+            {
+                throw new NullReferenceException("Auth token is null or empty");
+            }
+
+            // preparing request
+            RestRequest request = this.SetRequest(meEndpoint, authToken);
+
+            // executing request
+            RestResponse<DedaloResponse<Utente>> result = await base.SendAsync<DedaloResponse<Utente>>(request);
+            return await this.GetResponse<Utente>(result);
+        }
+
+        /// <summary>
+        /// Get profile information
+        /// </summary>
+        /// <returns>DedaloResponse with User as "data" property</returns>
+        public async Task<DedaloResponse<Utente>> GetMe()
+        {
+            return await this.GetMe(this.authToken);
         }
         #endregion
     }

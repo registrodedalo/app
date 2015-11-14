@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="UnitTestAuth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestProfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
