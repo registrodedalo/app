@@ -27,16 +27,8 @@ namespace RegistroDedalo.Test
     [TestClass]
     public class UnitTestProfile
     {
-        private string authToken = string.Empty;
-
-        [TestMethod]
-        public async Task TestMeWithExternalAuthToken()
-        {
-            DedaloClient client = new DedaloClient();
-            DedaloResponse<Utente> response = await client.GetMe(this.authToken);
-
-            Assert.IsNotNull(response.Data);
-        }
+        // auth token for test profile
+        private string authToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTAwLCJ1IjoidGVzdCIsImp0aSI6MSwiZGlkIjoiMTQ0NzUzNTU0OTgwMDExNSIsImlhdCI6MTQ0NzUzNTU1MSwiZXhwIjoxNDQ4ODMxNTUxfQ.lA8kOcnqRTD2YdPlLHBJ_0sYEZzm_oi4HxsxQADl-AU";
 
         [TestMethod]
         public async Task TestMeWithInternalAuthToken()

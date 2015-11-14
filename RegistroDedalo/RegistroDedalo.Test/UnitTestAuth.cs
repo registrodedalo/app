@@ -17,10 +17,6 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using RegistroDedalo.Zygote.Entities;
 using System.Threading.Tasks;
@@ -31,12 +27,15 @@ namespace RegistroDedalo.Test
     [TestClass]
     public class UnitTestAuth
     {
+        private string username = "test";
+        private string password = "ciao";
+
         [TestMethod]
         public async Task TestAuthWithDefaultValues()
         {
             DedaloClient client = new DedaloClient();
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "ciao");
+            DedaloResponse<Utente> response = await client.SignIn(username, password);
             Utente user = response.Data;
 
             Assert.IsNotNull(user);
@@ -47,7 +46,7 @@ namespace RegistroDedalo.Test
         {
             DedaloClient client = new DedaloClient(string.Empty);
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "ciao");
+            DedaloResponse<Utente> response = await client.SignIn(username, password);
             Utente user = response.Data;
 
             Assert.IsNotNull(user);
@@ -58,7 +57,7 @@ namespace RegistroDedalo.Test
         {
             DedaloClient client = new DedaloClient(string.Empty, "user-agent1");
 
-            DedaloResponse<Utente> response = await client.SignIn("nome.cognome", "ciao");
+            DedaloResponse<Utente> response = await client.SignIn(username, password);
             Utente user = response.Data;
 
             Assert.IsNotNull(user);

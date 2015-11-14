@@ -111,24 +111,10 @@ namespace RegistroDedalo.Zygote.Common
             r.AddHeader("Application-Key", applicationKey);
 
             // if endpoint differs from signEndpoint (this is the only endpoint that doesn't need an auth token), skip AuthToken header
-            if (endpoint != signEndpoint)
-                r.AddHeader("AuthToken", this.authToken);
+            if (endpoint != signEndpoint && !string.IsNullOrWhiteSpace(this.authToken))
+                r.AddHeader("Auth-Token", this.authToken);
             if (!string.IsNullOrWhiteSpace(this.userAgent))
                 r.AddHeader("User-Agent", this.userAgent);      
-
-            return r;
-        }
-
-        /// <summary>
-        /// Set up a request with default values
-        /// </summary>
-        /// <param name="endpoint">Endpoint for this request</param>
-        /// <param name="authToken">Auth token for this request</param>
-        /// <returns></returns>
-        private RestRequest SetRequest(string endpoint, string authToken)
-        {
-            RestRequest r = this.SetRequest(endpoint);
-            r.AddHeader("AuthToken", authToken);
 
             return r;
         }
@@ -215,9 +201,8 @@ namespace RegistroDedalo.Zygote.Common
         /// <summary>
         /// Get profile information
         /// </summary>
-        /// <param name="authToken">Auth token</param>
-        /// <returns>DedaloResponse with User "data" property</returns>
-        public async Task<DedaloResponse<Utente>> GetMe(string authToken)
+        /// <returns>DedaloResponse with User as "data" property</returns>
+        public async Task<DedaloResponse<Utente>> GetMe()
         {
             // throw exception if authToken is null or whitespace
             if (string.IsNullOrWhiteSpace(this.authToken))
@@ -226,20 +211,12 @@ namespace RegistroDedalo.Zygote.Common
             }
 
             // preparing request
-            RestRequest request = this.SetRequest(meEndpoint, authToken);
+            RestRequest request = this.SetRequest(meEndpoint);
+            request.Method = HttpMethod.Get;
 
             // executing request
             RestResponse<DedaloResponse<Utente>> result = await base.SendAsync<DedaloResponse<Utente>>(request);
             return await this.GetResponse<Utente>(result);
-        }
-
-        /// <summary>
-        /// Get profile information
-        /// </summary>
-        /// <returns>DedaloResponse with User as "data" property</returns>
-        public async Task<DedaloResponse<Utente>> GetMe()
-        {
-            return await this.GetMe(this.authToken);
         }
         #endregion
     }
