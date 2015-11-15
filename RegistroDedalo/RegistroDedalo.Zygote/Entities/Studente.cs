@@ -24,44 +24,14 @@ namespace RegistroDedalo.Zygote.Entities
     /// <summary>
     /// Struttura Studente
     /// </summary>
-    public class Studente
+    public class Studente : Utente
     {
-        private int id;
-        private string nome;
-        private string cognome;
         private DateTime dataNascita;
         private string codiceFiscale;
         private string residenza;
         private bool isEsoneratoIRC;
         private bool isEsoneratoEdFis;
         private string note;
-
-        /// <summary>
-        /// ID studente
-        /// </summary>
-        public int ID
-        {
-            get { return this.id; }
-            set { this.id = value; }
-        }
-
-        /// <summary>
-        /// Nome studente
-        /// </summary>
-        public string Nome
-        {
-            get { return this.nome; }
-            set { this.nome = value; }
-        }
-
-        /// <summary>
-        /// Cognome studente
-        /// </summary>
-        public string Cognome
-        {
-            get { return this.cognome; }
-            set { this.cognome = value; }
-        }
 
         /// <summary>
         /// Data di nascita

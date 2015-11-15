@@ -29,6 +29,8 @@ namespace RegistroDedalo.Zygote.Entities
     public class Utente
     {
         private int id;
+        private string nome;
+        private string cognome;
         private string username;
         private string password;
         private bool u2fEnabled;
@@ -37,6 +39,26 @@ namespace RegistroDedalo.Zygote.Entities
         private string[] profili;
         private string did;
         private DateTime authTokenExpirationDate;
+
+        /// <summary>
+        /// Nome utente
+        /// </summary>
+        [DataMember(Name = "nome")]
+        public string Nome
+        {
+            get { return this.nome; }
+            set { this.nome = value; }
+        }
+
+        /// <summary>
+        /// Cognome utente
+        /// </summary>
+        [DataMember(Name = "cognome")]
+        public string Cognome
+        {
+            get { return this.cognome; }
+            set { this.cognome = value; }
+        }
 
         /// <summary>
         /// Auth token per questo utente

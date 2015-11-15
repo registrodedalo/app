@@ -22,38 +22,8 @@ namespace RegistroDedalo.Zygote.Entities
     /// <summary>
     /// Classe Genitore
     /// </summary>
-    public class Genitore
+    public class Genitore : Utente
     {
-        private int id;
-        private string nome;
-        private string cognome;
-
-        /// <summary>
-        /// ID genitore
-        /// </summary>
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        /// <summary>
-        /// Nome genitore
-        /// </summary>
-        public string Nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
-
-        /// <summary>
-        /// Cognome genitore
-        /// </summary>
-        public string Cognome
-        {
-            get { return cognome; }
-            set { cognome = value; }
-        }
 
         // IDUtente
     }

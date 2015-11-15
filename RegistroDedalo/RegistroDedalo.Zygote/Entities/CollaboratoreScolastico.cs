@@ -22,17 +22,7 @@ namespace RegistroDedalo.Zygote.Entities
     /// <summary>
     /// Struttura CollaboratoreScolastico
     /// </summary>
-    public class CollaboratoreScolastico
+    public class CollaboratoreScolastico : Utente
     {
-        private int id;
-
-        /// <summary>
-        /// ID collaboratore scolastico
-        /// </summary>
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
     }
 }

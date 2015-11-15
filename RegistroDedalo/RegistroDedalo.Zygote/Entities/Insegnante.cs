@@ -22,42 +22,8 @@ namespace RegistroDedalo.Zygote.Entities
     /// <summary>
     /// Struttura Insegnante
     /// </summary>
-    public class Insegnante
+    public class Insegnante : Utente
     {
-        private int id;
-        private string nome;
-        private string cognome;
-
-        /// <summary>
-        /// ID insegnante
-        /// </summary>
-        public int ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-
-        /// <summary>
-        /// Nome insegnante
-        /// </summary>
-        public string Nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
-
-
-        /// <summary>
-        /// Cognome insegnante
-        /// </summary>
-        public string Cognome
-        {
-            get { return cognome; }
-            set { cognome = value; }
-        }
-
-
         // IDUtente
         // IDScuola
     }
