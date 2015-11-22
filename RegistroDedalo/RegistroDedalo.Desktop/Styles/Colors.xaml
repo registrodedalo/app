@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:RegistroDedalo.Desktop">
+
+    <SolidColorBrush x:Key="AccentColor">#FF1C4363</SolidColorBrush>
+    <SolidColorBrush x:Key="AccentColorDark">#FF032A4A</SolidColorBrush>
+    
+</ResourceDictionary>
