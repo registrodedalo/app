@@ -4,11 +4,71 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistroDedalo.Desktop.Views"
+        xmlns:helpers="clr-namespace:RegistroDedalo.Desktop.Helpers"
+        xmlns:resx="clr-namespace:RegistroDedalo.Desktop.Properties"
         mc:Ignorable="d"
-        Title="LoginView" 
+        Title="{x:Static resx:Resources.LoginViewTitle}" 
         Height="600" 
-        Width="800">
+        Width="800"
+        Background="Black">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         
+        <!-- Title -->
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1">
+
+            <TextBlock
+                Style="{StaticResource TitleTextBlock}"
+                Text="{x:Static resx:Resources.AppName}"
+                HorizontalAlignment="Center"/>
+
+            <TextBlock
+                Style="{StaticResource SubTitleTextBlock}"
+                Text="{x:Static resx:Resources.AppDescription}"
+                HorizontalAlignment="Center" Margin="0,-15,0,15"/>
+            
+        </StackPanel>
+        
+        
+        <!-- Login form -->
+        <Grid
+            Grid.Row="2"
+            Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+             
+            <!-- Login -->
+            <TextBox
+                Style="{StaticResource WaterMarkTextBox}"
+                helpers:WaterMarkTextHelper.WatermarkText="{x:Static resx:Resources.UsernameLabel}"
+                Margin="0,6"/>
+            <PasswordBox
+                Grid.Row="1"
+                Style="{StaticResource WaterMarkPasswordBox}"
+                helpers:WaterMarkTextHelper.WatermarkText="{x:Static resx:Resources.PasswordLabel}"
+                Margin="0,6"/>
+            
+            <Button
+                Grid.Row="3"
+                Style="{StaticResource LoginButton}"
+                Content="Accedi"/>
+        </Grid>
     </Grid>
 </Window>
