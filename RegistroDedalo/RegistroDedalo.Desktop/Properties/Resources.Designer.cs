@@ -61,7 +61,7 @@ namespace RegistroDedalo.Desktop.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registro elettronico digitale.
+        ///   Looks up a localized string similar to Registro elettronico.
         /// </summary>
         public static string AppDescription {
             get {

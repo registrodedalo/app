@@ -9,13 +9,15 @@
         mc:Ignorable="d"
         Title="{x:Static resx:Resources.LoginViewTitle}" 
         Height="600" 
-        Width="800"
-        Background="Black">
+        Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/RegistroDedalo.Desktop;component/Assets/background.jpg"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
@@ -24,7 +26,7 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!-- Title -->
         <StackPanel
             Grid.Row="1"
@@ -39,10 +41,10 @@
                 Style="{StaticResource SubTitleTextBlock}"
                 Text="{x:Static resx:Resources.AppDescription}"
                 HorizontalAlignment="Center" Margin="0,-15,0,15"/>
-            
+
         </StackPanel>
-        
-        
+
+
         <!-- Login form -->
         <Grid
             Grid.Row="2"
@@ -50,10 +52,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition/>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="1.5*"/>
             </Grid.RowDefinitions>
-             
+
             <!-- Login -->
             <TextBox
                 Style="{StaticResource WaterMarkTextBox}"
@@ -64,11 +66,11 @@
                 Style="{StaticResource WaterMarkPasswordBox}"
                 helpers:WaterMarkTextHelper.WatermarkText="{x:Static resx:Resources.PasswordLabel}"
                 Margin="0,6"/>
-            
+
             <Button
                 Grid.Row="3"
                 Style="{StaticResource LoginButton}"
-                Content="Accedi"/>
+                Content="ACCEDI"/>
         </Grid>
     </Grid>
 </Window>
