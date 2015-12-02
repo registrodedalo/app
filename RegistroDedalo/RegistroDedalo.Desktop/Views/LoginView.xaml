@@ -1,4 +1,4 @@
-﻿<Window x:Class="RegistroDedalo.Desktop.Views.LoginView"
+﻿<UserControl x:Class="RegistroDedalo.Desktop.Views.LoginView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,13 +6,17 @@
         xmlns:local="clr-namespace:RegistroDedalo.Desktop.Views"
         xmlns:helpers="clr-namespace:RegistroDedalo.Desktop.Helpers"
         xmlns:resx="clr-namespace:RegistroDedalo.Desktop.Properties"
+        xmlns:converters="clr-namespace:RegistroDedalo.Desktop.Converters"
+        xmlns:cm="http://www.caliburnproject.org"
         mc:Ignorable="d"
-        Title="{x:Static resx:Resources.LoginViewTitle}" 
         Height="600" 
         Width="800">
-    <Window.Background>
+    <UserControl.Resources>
+        <converters:TextFormatterConverter x:Key="textFormatter"/>
+    </UserControl.Resources>
+    <UserControl.Background>
         <ImageBrush ImageSource="/RegistroDedalo.Desktop;component/Assets/background.jpg"/>
-    </Window.Background>
+    </UserControl.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -68,9 +72,10 @@
                 Margin="0,6"/>
 
             <Button
+                cm:Message.Attach="[Event Click] = [Action DoLogin()]"
                 Grid.Row="3"
                 Style="{StaticResource LoginButton}"
-                Content="ACCEDI"/>
+                Content="{Binding Source={x:Static resx:Resources.AccediButton}, Converter={StaticResource textFormatter}, ConverterParameter='toUpper'}"/>
         </Grid>
     </Grid>
-</Window>
+</UserControl>

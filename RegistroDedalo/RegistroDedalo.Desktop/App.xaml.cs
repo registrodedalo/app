@@ -13,5 +13,9 @@ namespace RegistroDedalo.Desktop
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            this.InitializeComponent();
+        }
     }
 }

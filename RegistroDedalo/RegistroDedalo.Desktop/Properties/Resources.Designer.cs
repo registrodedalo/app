@@ -61,6 +61,15 @@ namespace RegistroDedalo.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accedi.
+        /// </summary>
+        public static string AccediButton {
+            get {
+                return ResourceManager.GetString("AccediButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registro elettronico.
         /// </summary>
         public static string AppDescription {

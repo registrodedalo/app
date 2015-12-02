@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace RegistroDedalo.Desktop.ViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel : PropertyChangedBase
     {
+        public void DoLogin()
+        {
+
+        }
     }
 }
