@@ -17,18 +17,17 @@
     with Dedalo. If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System.Windows;
+using Caliburn.Micro;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace RegistroDedalo.Desktop.Views
+namespace RegistroDedalo.Desktop.ViewModels
 {
-    /// <summary>
-    /// Interaction logic for LoginView.xaml
-    /// </summary>
-    public partial class LoginView : Window
+    public class DashboardViewModel : PropertyChangedBase
     {
-        public LoginView()
-        {
-            InitializeComponent();
-        }
+
     }
 }

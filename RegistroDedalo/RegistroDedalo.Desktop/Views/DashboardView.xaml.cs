@@ -22,11 +22,11 @@ using System.Windows;
 namespace RegistroDedalo.Desktop.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Logica di interazione per DashboardView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class DashboardView : Window
     {
-        public LoginView()
+        public DashboardView()
         {
             InitializeComponent();
         }
