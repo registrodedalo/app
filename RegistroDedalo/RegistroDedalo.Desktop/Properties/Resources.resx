@@ -126,13 +126,31 @@
   <data name="AppName" xml:space="preserve">
     <value>Dedalo</value>
   </data>
+  <data name="GeneralErrorMessage" xml:space="preserve">
+    <value>Ops! Qualcosa è andato storto. Se il problema persiste chiama una delle nostre scimmie :)</value>
+  </data>
+  <data name="LoginMissingField" xml:space="preserve">
+    <value>Alcuni campi non sono validi</value>
+  </data>
   <data name="LoginViewTitle" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="MessageBoxDefaultTitle" xml:space="preserve">
+    <value>Informazione</value>
+  </data>
+  <data name="MessageBoxErrorTitle" xml:space="preserve">
+    <value>Errore!</value>
   </data>
   <data name="PasswordLabel" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="UsernameLabel" xml:space="preserve">
     <value>Nome utente</value>
+  </data>
+  <data name="WrongPassword" xml:space="preserve">
+    <value>Password errata!</value>
+  </data>
+  <data name="WrongUsername" xml:space="preserve">
+    <value>Nome utente errato!</value>
   </data>
 </root>

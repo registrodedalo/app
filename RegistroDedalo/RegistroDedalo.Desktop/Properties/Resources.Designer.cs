@@ -88,11 +88,47 @@ namespace RegistroDedalo.Desktop.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ops! Qualcosa è andato storto. Se il problema persiste chiama una delle nostre scimmie :).
+        /// </summary>
+        public static string GeneralErrorMessage {
+            get {
+                return ResourceManager.GetString("GeneralErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alcuni campi non sono validi.
+        /// </summary>
+        public static string LoginMissingField {
+            get {
+                return ResourceManager.GetString("LoginMissingField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string LoginViewTitle {
             get {
                 return ResourceManager.GetString("LoginViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informazione.
+        /// </summary>
+        public static string MessageBoxDefaultTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxDefaultTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errore!.
+        /// </summary>
+        public static string MessageBoxErrorTitle {
+            get {
+                return ResourceManager.GetString("MessageBoxErrorTitle", resourceCulture);
             }
         }
         
@@ -111,6 +147,24 @@ namespace RegistroDedalo.Desktop.Properties {
         public static string UsernameLabel {
             get {
                 return ResourceManager.GetString("UsernameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password errata!.
+        /// </summary>
+        public static string WrongPassword {
+            get {
+                return ResourceManager.GetString("WrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome utente errato!.
+        /// </summary>
+        public static string WrongUsername {
+            get {
+                return ResourceManager.GetString("WrongUsername", resourceCulture);
             }
         }
     }

@@ -57,15 +57,17 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
             <!-- Login -->
             <TextBox
+                x:Name="Username"
                 Style="{StaticResource WaterMarkTextBox}"
                 helpers:WaterMarkTextHelper.WatermarkText="{x:Static resx:Resources.UsernameLabel}"
                 Margin="0,6"/>
             <PasswordBox
+                cm:Message.Attach="[Event PasswordChanged] = [Action PasswordChanged($source)]"
                 Grid.Row="1"
                 Style="{StaticResource WaterMarkPasswordBox}"
                 helpers:WaterMarkTextHelper.WatermarkText="{x:Static resx:Resources.PasswordLabel}"
