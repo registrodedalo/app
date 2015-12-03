@@ -18,6 +18,7 @@
 */
 
 using Newtonsoft.Json;
+using System.Net;
 using System.Runtime.Serialization;
 
 namespace RegistroDedalo.Zygote.Common
@@ -30,6 +31,7 @@ namespace RegistroDedalo.Zygote.Common
     {
         private int code;
         private string message;
+        private HttpStatusCode statusCode;
 
         /// <summary>
         /// Error code (specified on Dedalo's documentation)
@@ -52,6 +54,15 @@ namespace RegistroDedalo.Zygote.Common
             set { message = value; }
         }
         
+        /// <summary>
+        /// Http Status Code
+        /// </summary>
+        public HttpStatusCode StatusCode
+        {
+            get { return this.statusCode; }
+            set { this.statusCode = value; }
+        }
+
         /// <summary>
         /// Initializes a new instance of DedaloError
         /// </summary>

@@ -140,6 +140,16 @@ namespace RegistroDedalo.Zygote.Common
                 if (result.HttpResponseMessage.Content != null)
                 {
                     response = JsonConvert.DeserializeObject<DedaloResponse<T>>(await result.HttpResponseMessage.Content.ReadAsStringAsync());
+                    response.Error.StatusCode = result.HttpResponseMessage.StatusCode;
+                }
+                else if (result.HttpResponseMessage != null)
+                {
+                    response.Error = new DedaloError()
+                    {
+                        Code = -1,
+                        Message = result.HttpResponseMessage.ReasonPhrase,
+                        StatusCode = result.HttpResponseMessage.StatusCode
+                    };
                 }
                 else
                 {
